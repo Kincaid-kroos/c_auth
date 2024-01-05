@@ -27,7 +27,7 @@ class RegisterView(generics.CreateAPIView):
 @api_view(['GET'])
 def getRoutes(request):
     routes = [
-        '/api/login/',
+        '/api/token/',
         '/api/register/',
         '/api/token/refresh/'
     ]
@@ -41,7 +41,7 @@ def testEndPoint(request):
         data = f"Congratulations {request.user}, your API just responded to GET request"
         return Response({'response': data}, status=status.HTTP_200_OK)
     elif request.method == 'POST':
-        text = "Hello Tess"
+        text = "Hello Tina"
         data = f'Congratulation your API just responded to POST request with text: {text}'
         return Response({'response': data}, status=status.HTTP_200_OK)
     return Response({}, status.HTTP_400_BAD_REQUEST)
