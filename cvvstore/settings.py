@@ -126,8 +126,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-#To handle related name args on user Model
 AUTH_USER_MODEL = 'authentication.User'
 
 
