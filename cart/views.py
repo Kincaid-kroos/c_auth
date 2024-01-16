@@ -9,6 +9,11 @@ class CartItemsCreateView(generics.CreateAPIView):
     serializer_class = cartItemsSerializer
     permission_classes = (permissions.AllowAny, )
 
+class CartItemsListView(generics.ListAPIView):
+    queryset = cartItems.objects.all()
+    serializer_class = cartItemsSerializer
+    permission_classes = (permissions.AllowAny, )    
+
 
 class CartItemsLatestView(generics.ListAPIView):
     queryset = cartItems.objects.filter(latest=True).order_by('-date_created')
