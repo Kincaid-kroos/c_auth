@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.db.models.signals import post_save
 
+
 class User(AbstractUser):
     username = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
@@ -10,6 +11,14 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+    class Meta:
+     permissions = (
+                   ("make_admin", "Can view and edit most admin features."),
+                   ("edit_permissions", "Admin user can modify user permissions."),
+                   ("edit_nacha", "User can edit and modify NACHA files."),
+                   ("edit_commissions", "User can override commisions."),
+                   ("view_reports", "User can view admin reports."),
+                  )
     
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
