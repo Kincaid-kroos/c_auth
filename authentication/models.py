@@ -11,14 +11,7 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
-    class Meta:
-     permissions = (
-                   ("make_admin", "Can view and edit most admin features."),
-                   ("edit_permissions", "Admin user can modify user permissions."),
-                   ("edit_nacha", "User can edit and modify NACHA files."),
-                   ("edit_commissions", "User can override commisions."),
-                   ("view_reports", "User can view admin reports."),
-                  )
+   
     
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
