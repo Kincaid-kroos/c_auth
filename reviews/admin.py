@@ -3,6 +3,6 @@ from .models import ReviewsItems
 
 @admin.register(ReviewsItems)
 class ReviewssAdmin(admin.ModelAdmin):
-    list_display = ['name', 'comments', 'date_created']
+    list_display = ['name', 'comments']
     search_fields = ['name', 'comments']
-    list_filter = ['date_created']
+    
