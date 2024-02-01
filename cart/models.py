@@ -4,7 +4,7 @@ from datetime import datetime
 class cartItems(models.Model):
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='photos/%Y/%m/%d/')
-    available = models.IntegerField()
+    available = models.IntegerField(null=True, blank=True)
     amount = models.IntegerField()
     latest = models.BooleanField(default=False)
     date_created = models.DateTimeField(default=datetime.now, blank=True)
